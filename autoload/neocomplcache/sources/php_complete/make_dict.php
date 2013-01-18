@@ -12,14 +12,16 @@ $classes    = get_declared_classes();
 // functions
 $output = 'functions.dict';
 
-$fp = fopen($output, 'w');
 foreach ($functions['internal'] as $func) {
   $url = sprintf(
-    'http://jp1.php.net/manual/ja/function.%s.php',
+    'http://php.net/manual/en/function.%s.php',
     str_replace('_', '-', $func)
   );
 
   $html = file_get_html($url);
+  if(!$html) {
+    continue;
+  }
 
   $title = '';
   foreach ($html->find('span.dc-title') as $element) {
@@ -45,9 +47,8 @@ foreach ($functions['internal'] as $func) {
     $description,
     $comment
   );
-  fwrite($fp, $line);
+  file_put_contents("functions.dict",$line,FILE_APPEND);
   echo $line;
   $html->clear();
   unset($html);
 }
-fclose($fp);
