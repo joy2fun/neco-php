@@ -5,10 +5,24 @@ if !exists('s:candidates_cache')
   let s:candidates_cache = {}
 endif
 
-function! neocomplcache#sources#php_complete#helper#get_internal_functions() "{{{
-  if !has_key(s:candidates_cache, 'internal_functions')
-    let s:candidates_cache.internal_functions = []
-    let dict_file = s:get_dict_path('functions')
+if !exists('g:neoco_default_sources')
+  let g:neoco_default_sources = 'phpunit'
+endif
+
+function! neocomplcache#sources#php_complete#helper#get_candidates()
+  let dicts = split(g:neoco_default_sources, ',')
+  let ret = []
+  for dict in dicts
+    call neocomplcache#sources#php_complete#helper#read_candidates(dict)
+    let ret += s:candidates_cache[dict]
+  endfor
+  return ret
+endfunction
+
+function! neocomplcache#sources#php_complete#helper#read_candidates(dict_name) "{{{
+  if !has_key(s:candidates_cache, a:dict_name)
+    let s:candidates_cache[a:dict_name] = []
+    let dict_file = s:get_dict_path(a:dict_name)
     if filereadable(dict_file)
       let candidates = []
       for line in readfile(dict_file)
@@ -25,15 +39,14 @@ function! neocomplcache#sources#php_complete#helper#get_internal_functions() "{{
         call add(candidates, {
           \ 'word' : func,
           \ 'abbr' : func.'()',
-          \ 'menu' : '[php] '.title,
-          \ 'kind' : 'f',
+          \ 'menu' : '[m] '.title,
+          \ 'kind' : 'x',
           \ 'info' : info
           \})
       endfor
     endif
-    let s:candidates_cache.internal_functions = candidates
+    let s:candidates_cache[a:dict_name] = candidates
   endif
-  return s:candidates_cache.internal_functions
 endfunction "}}}
 
 function! s:get_dict_path(dict_name) "{{{

@@ -57,7 +57,7 @@ function! s:source.get_complete_words(cur_keyword_pos, cur_keyword_str) "{{{
   if len(l:php_class_name) > 0
     return []
   endif
-  let candidates = neocomplcache#sources#php_complete#helper#get_internal_functions()
+  let candidates = neocomplcache#sources#php_complete#helper#get_candidates()
 
   let filtered_candidates = neocomplcache#keyword_filter(deepcopy(candidates), a:cur_keyword_str)
   return filtered_candidates
