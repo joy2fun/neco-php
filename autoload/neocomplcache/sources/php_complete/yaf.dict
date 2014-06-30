@@ -1,0 +1,190 @@
+YAF_VERSION	;		;	const
+YAF_ENVIRON	;		;	const
+YAF_ERR_STARTUP_FAILED	;		;	const
+YAF_ERR_ROUTE_FAILED	;		;	const
+YAF_ERR_DISPATCH_FAILED	;		;	const
+YAF_ERR_AUTOLOAD_FAILED	;		;	const
+YAF_ERR_NOTFOUND_MODULE	;		;	const
+YAF_ERR_NOTFOUND_CONTROLLER	;		;	const
+YAF_ERR_NOTFOUND_ACTION	;		;	const
+YAF_ERR_NOTFOUND_VIEW	;		;	const
+YAF_ERR_CALL_FAILED	;		;	const
+YAF_ERR_TYPE_ERROR	;		;	const
+Yaf_Application	;		;	{}
+Yaf_Bootstrap_Abstract	;		;	{}
+Yaf_Dispatcher	;		;	{}
+Yaf_Loader	;		;	{}
+Yaf_Request_Abstract	;		;	{}
+Yaf_Request_Http	;		;	{}
+Yaf_Request_Simple	;		;	{}
+Yaf_Response_Abstract	;		;	{}
+Yaf_Response_Http	;		;	{}
+Yaf_Response_Cli	;		;	{}
+Yaf_Controller_Abstract	;		;	{}
+Yaf_Action_Abstract	;		;	{}
+Yaf_Config_Abstract	;		;	{}
+Yaf_Config_Ini	;		;	{}
+Yaf_Config_Simple	;		;	{}
+Yaf_View_Simple	;		;	{}
+Yaf_Router	;		;	{}
+Yaf_Route_Static	;		;	{}
+Yaf_Route_Simple	;		;	{}
+Yaf_Route_Supervar	;		;	{}
+Yaf_Route_Rewrite	;		;	{}
+Yaf_Route_Regex	;		;	{}
+Yaf_Route_Map	;		;	{}
+Yaf_Plugin_Abstract	;		;	{}
+Yaf_Registry	;		;	{}
+Yaf_Session	;		;	{}
+Yaf_Exception	;		;	{}
+Yaf_Exception_StartupError	;		;	{}
+Yaf_Exception_RouterFailed	;		;	{}
+Yaf_Exception_DispatchFailed	;		;	{}
+Yaf_Exception_LoadFailed	;		;	{}
+Yaf_Exception_LoadFailed_Module	;		;	{}
+Yaf_Exception_LoadFailed_Controller	;		;	{}
+Yaf_Exception_LoadFailed_Action	;		;	{}
+Yaf_Exception_LoadFailed_View	;		;	{}
+Yaf_Exception_TypeError	;		;	{}
+Yaf_View_Interface	;		;	{}
+Yaf_Route_Interface	;		;	{}
+run	;	()
+execute	;	()
+app	;	()
+environ	;	()
+bootstrap	;	()
+getConfig	;	()
+getModules	;	()
+getDispatcher	;	()
+setAppDirectory	;	()
+getAppDirectory	;	()
+getLastErrorNo	;	()
+getLastErrorMsg	;	()
+clearLastError	;	()
+enableView	;	()
+disableView	;	()
+initView	;	()
+setView	;	()
+setRequest	;	()
+getApplication	;	()
+getRouter	;	()
+getRequest	;	()
+setErrorHandler	;	()
+setDefaultModule	;	()
+setDefaultController	;	()
+setDefaultAction	;	()
+returnResponse	;	()
+autoRender	;	()
+flushInstantly	;	()
+getInstance	;	()
+dispatch	;	()
+throwException	;	()
+catchException	;	()
+registerPlugin	;	()
+autoload	;	()
+registerLocalNamespace	;	()
+getLocalNamespace	;	()
+clearLocalNamespace	;	()
+isLocalName	;	()
+import	;	()
+setLibraryPath	;	()
+getLibraryPath	;	()
+isGet	;	()
+isPost	;	()
+isPut	;	()
+isHead	;	()
+isOptions	;	()
+isCli	;	()
+isXmlHttpRequest	;	()
+getServer	;	()
+getEnv	;	()
+setParam	;	()
+getParam	;	()
+getParams	;	()
+getException	;	()
+getModuleName	;	()
+getControllerName	;	()
+getActionName	;	()
+setModuleName	;	()
+setControllerName	;	()
+setActionName	;	()
+getMethod	;	()
+getLanguage	;	()
+setBaseUri	;	()
+getBaseUri	;	()
+getRequestUri	;	()
+setRequestUri	;	()
+isDispatched	;	()
+setDispatched	;	()
+isRouted	;	()
+setRouted	;	()
+getQuery	;	()
+getPost	;	()
+getCookie	;	()
+getFiles	;	()
+get	;	()
+setBody	;	()
+appendBody	;	()
+prependBody	;	()
+clearBody	;	()
+getBody	;	()
+setHeader	;	()
+setAllHeaders	;	()
+getHeader	;	()
+clearHeaders	;	()
+setRedirect	;	()
+response	;	()
+getResponse	;	()
+getView	;	()
+setViewpath	;	()
+getViewpath	;	()
+forward	;	()
+redirect	;	()
+getInvokeArgs	;	()
+getInvokeArg	;	()
+getController	;	()
+set	;	()
+readonly	;	()
+toArray	;	()
+count	;	()
+rewind	;	()
+current	;	()
+next	;	()
+valid	;	()
+key	;	()
+offsetUnset	;	()
+offsetGet	;	()
+offsetExists	;	()
+offsetSet	;	()
+assign	;	()
+render	;	()
+eval	;	()
+display	;	()
+assignRef	;	()
+clear	;	()
+setScriptPath	;	()
+getScriptPath	;	()
+addRoute	;	()
+addConfig	;	()
+route	;	()
+getRoute	;	()
+getRoutes	;	()
+getCurrentRoute	;	()
+match	;	()
+routerStartup	;	()
+routerShutdown	;	()
+dispatchLoopStartup	;	()
+dispatchLoopShutdown	;	()
+preDispatch	;	()
+postDispatch	;	()
+preResponse	;	()
+has	;	()
+del	;	()
+start	;	()
+getMessage	;	()
+getCode	;	()
+getFile	;	()
+getLine	;	()
+getTrace	;	()
+getPrevious	;	()
+getTraceAsString	;	()

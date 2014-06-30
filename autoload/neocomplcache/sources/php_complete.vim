@@ -31,7 +31,7 @@ function! neocomplcache#sources#php_complete#define() "{{{
 endfunction "}}}
 let s:source = {
       \ 'name' : 'php_complete',
-      \ 'kind' : 'ftplugin',
+      \ 'kind' : 'manual',
       \ 'filetypes' : { 'php' : 1, },
       \}
 

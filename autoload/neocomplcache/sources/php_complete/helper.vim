@@ -5,12 +5,12 @@ if !exists('s:candidates_cache')
   let s:candidates_cache = {}
 endif
 
-if !exists('g:neoco_default_sources')
-  let g:neoco_default_sources = 'phpunit'
+if !exists('g:neco_php_default_sources')
+  let g:neco_php_default_sources = 'functions'
 endif
 
 function! neocomplcache#sources#php_complete#helper#get_candidates()
-  let dicts = split(g:neoco_default_sources, ',')
+  let dicts = split(g:neco_php_default_sources, ',')
   let ret = []
   for dict in dicts
     call neocomplcache#sources#php_complete#helper#read_candidates(dict)
@@ -27,21 +27,27 @@ function! neocomplcache#sources#php_complete#helper#read_candidates(dict_name) "
       let candidates = []
       for line in readfile(dict_file)
         let cols        = split(line, '\t;\t')
-        let func        = get(cols, 0, '')
-        let title       = get(cols, 1, '')
-        let description = get(cols, 2, '')
-        let comment     = get(cols, 3, '')
+        let word        = get(cols, 0, '')
+        let extra       = get(cols, 1, '')
+        let kind        = get(cols, 2, 'F')
+        let menu        = get(cols, 3, a:dict_name)
 
-        let info = ''
-        let info = len(description) > 0 ? description : ''
-        let info = len(comment) > 0 ? info."\n\n".comment : info
+        "info attribute has been cancelled.
+        "reset kind and menu for functions.dict
+        if a:dict_name == "functions"
+            if len(extra) > 50
+                let extra = strpart(extra, 0, 60-len(word)) . '..'
+            endif
+            let extra = '() ' . extra
+            let kind = ''
+            let menu = 'func'
+        endif
 
         call add(candidates, {
-          \ 'word' : func,
-          \ 'abbr' : func.'()',
-          \ 'menu' : '[m] '.title,
-          \ 'kind' : 'x',
-          \ 'info' : info
+          \ 'word' : word,
+          \ 'abbr' : word.' '.extra,
+          \ 'kind' : kind,
+          \ 'menu' : '['.menu.']'
           \})
       endfor
     endif
