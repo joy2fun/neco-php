@@ -48,15 +48,15 @@ endfunction"}}}
 function! s:source.get_complete_words(cur_keyword_pos, cur_keyword_str) "{{{
   let l:cur_text = neocomplcache#get_cur_text()
 
-  let l:php_class_variable = matchstr(l:cur_text, '\zs\(\$\h\w\+\)\ze->\h\w*$')
-  if len(l:php_class_variable) > 0
-    return []
-  endif
+  "let l:php_class_variable = matchstr(l:cur_text, '\zs\(\$\h\w\+\)\ze->\h\w*$')
+  "if len(l:php_class_variable) > 0
+    "return []
+  "endif
 
-  let l:php_class_name = matchstr(l:cur_text, '\zs\(\h\w\+\)\ze::\h\w*$')
-  if len(l:php_class_name) > 0
-    return []
-  endif
+  "let l:php_class_name = matchstr(l:cur_text, '\zs\(\h\w\+\)\ze::\h\w*$')
+  "if len(l:php_class_name) > 0
+    "return []
+  "endif
   let candidates = neocomplcache#sources#php_complete#helper#get_candidates()
 
   let filtered_candidates = neocomplcache#keyword_filter(deepcopy(candidates), a:cur_keyword_str)
